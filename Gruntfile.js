@@ -228,6 +228,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         'server.js',
+                        'Procfile',
                         'images/{,*/}*.{webp,gif}'
                     ]
                 }]
