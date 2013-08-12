@@ -1,14 +1,15 @@
 /*global mystops, $*/
 
 window.mystops = {
-    Models: {},
-    Collections: {},
-    Views: {},
-    Routers: {},
-    init: function () {
-      this.Collections.routesCollection = new this.Collections.RoutesCollection();
-      new mystops.Views.SelectView();
-    }
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {},
+  init: function () {
+    this.Collections.routes = new this.Collections.RouteCollection();
+    this.Collections.directions = new this.Collections.DirectionCollection();
+    new mystops.Views.SelectView();
+  }
 };
 
 /* Order and include as you please. */
@@ -19,5 +20,5 @@ require('app/scripts/collections/*');
 require('app/scripts/routers/*');
 
 $(document).ready(function () {
-    mystops.init();
+  mystops.init();
 });

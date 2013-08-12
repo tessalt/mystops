@@ -4,16 +4,36 @@ mystops.Views.SelectView = Backbone.View.extend({
 
   el: "body",
 
-  initialize: function() {
-    mystops.Collections.routesCollection.fetch();
-    this.listenTo(mystops.Collections.routesCollection, 'sync', this.showRoutes);
+  events: {
+    'change #routes' : 'selectDirection'
   },
 
-  showRoutes: function() {
-    mystops.Collections.routesCollection.each(function(e){
-      var view = new mystops.Views.RouteView({model: e});
-      $("#routes").append(view.render().el);
-    })
+  initialize: function() {
+    mystops.Collections.routes.fetch();
+    this.listenTo(mystops.Collections.routes, 'add', this.showRoute);
+    this.listenTo(mystops.Collections.directions, 'sync', this.showDirections);
+  },
+
+  showAllRoutes: function() {
+    mystops.Collections.routes.each(this.showRoute, this);
+  },
+
+  showRoute: function(route) {
+    var view = new mystops.Views.RouteView({ model: route });
+    $("#routes").append(view.render().el);
+  },
+
+  selectDirection: function() {
+    var chosenRoute = $("#routes option:selected").val();
+    mystops.Collections.directions.fetch({ data: { r: chosenRoute } });
+  },
+
+  showDirections: function() {
+    $("#directions").html("<option>Select a Direction</option>");
+    mystops.Collections.directions.each(function(direction){
+      var view = new mystops.Views.DirectionView({model: direction});
+      $("#directions").append(view.render().el);
+    });
   }
 
 });

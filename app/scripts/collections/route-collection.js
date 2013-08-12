@@ -1,8 +1,8 @@
 /*global mystops, Backbone*/
 
-mystops.Collections.RoutesCollection = Backbone.Collection.extend({
+mystops.Collections.RouteCollection = Backbone.Collection.extend({
 
-  model: mystops.Models.RoutesModel,
+  model: mystops.Models.RouteModel,
 
   url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc',
 
