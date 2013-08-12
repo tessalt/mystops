@@ -2,7 +2,7 @@
   "name": "mystops",
   "version": "0.0.0",
   "dependencies": {
-    "express": "3.1.x",
+    "express": "3.x",
     "request": "~2.x"
   },
   "devDependencies": {
