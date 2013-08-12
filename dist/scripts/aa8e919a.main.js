@@ -1,1 +1,0 @@
-!function(){window.mystops={Models:{},Collections:{},Views:{},Routers:{},init:function(){console.log("Hello from Backbone!")}}}(),function(){this.JST=this.JST||{}}(),function(){mystops.Models.RoutesModel=Backbone.Model.extend({})}(),function(){$(document).ready(function(){mystops.init()})}();
