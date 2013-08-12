@@ -1,13 +1,13 @@
 /*global mystops, $*/
 
-
 window.mystops = {
     Models: {},
     Collections: {},
     Views: {},
     Routers: {},
     init: function () {
-        console.log('Hello from Backbone!');
+      this.Collections.routesCollection = new this.Collections.RoutesCollection();
+      new mystops.Views.SelectView();
     }
 };
 
