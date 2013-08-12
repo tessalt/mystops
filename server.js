@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var path = require('path');
 
 app.configure(function(){
   app.use(express.bodyParser());
