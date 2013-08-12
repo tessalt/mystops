@@ -4,7 +4,7 @@ var app = express();
 app.configure(function(){
   app.use(express.bodyParser());
   app.use(app.router);
-  app.use(express.static(__dirname + 'dist'));
+  app.use(express.static(path.join(__dirname, 'dist')));
 });
 
 var port = process.env.PORT || 9000;
