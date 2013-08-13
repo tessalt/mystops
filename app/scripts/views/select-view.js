@@ -6,7 +6,8 @@ mystops.Views.SelectView = Backbone.View.extend({
 
   events: {
     'change #routes' : 'selectDirection',
-    'change #directions' : 'selectStop'
+    'change #directions' : 'selectStop',
+    'click #add_stop' : 'addSavedStop'
   },
 
   initialize: function() {
@@ -52,6 +53,21 @@ mystops.Views.SelectView = Backbone.View.extend({
         $("#stops").append(view.render().el);
       }
     });
+  },
+
+  addSavedStop: function() {
+    var selectedRoute = $("#routes option:selected"),
+        selectedDirection = $("#directions option:selected"),
+        selectedStop = $("#stops option:selected");
+    var newSavedStop = new mystops.Models.SavedStopModel({
+        routeTag: selectedRoute.val(),
+        directionTag: selectedDirection.val(),
+        stopTag: selectedStop.val(),
+        routeName: selectedRoute.text(),
+        directionName: selectedDirection.text(),
+        stopName: selectedStop.text()
+    });
+    mystops.Collections.savedStops.create(newSavedStop);
   }
 
 });
