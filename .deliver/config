@@ -1,0 +1,3 @@
+APP="mystops"
+STRATEGY="gh-pages"
+ORIGIN_DIR="dist"
