@@ -69,7 +69,11 @@ mystops.Views.SelectView = Backbone.View.extend({
         directionName: selectedDirection.text(),
         stopName: selectedStop.text()
     });
-    mystops.Collections.savedStops.create(newSavedStop);
+    var validModel = this.validate(newSavedStop);
+    if (validModel) {
+      console.log(validModel);
+      mystops.Collections.savedStops.create(newSavedStop);
+    }
   },
 
   showAllSavedStops: function() {
@@ -80,6 +84,23 @@ mystops.Views.SelectView = Backbone.View.extend({
   showSavedStop: function(savedStop) {
     var view = new mystops.Views.SavedStopView({ model: savedStop });
     $("#saved_stops").append( view.render().el );
+  },
+
+  validate: function(model) {
+    var validationEl = $("#validation");
+    validationEl.html('');
+    var currentStops = [];
+    mystops.Collections.savedStops.each(function(savedStop){
+      currentStops.push(savedStop.get('stopTag'));
+    });
+    if (!model.get('stopTag')) {
+      validationEl.append("<li>Please select a stop</li>");
+      return false;
+    } else if (currentStops.length > 5) {
+      validationEl.append("<li>Maximum of 5 stops my be selected</li>");
+    } else {
+      return true;
+    }
   }
 
 });
