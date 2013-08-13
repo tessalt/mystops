@@ -11,10 +11,12 @@ mystops.Views.SelectView = Backbone.View.extend({
   },
 
   initialize: function() {
-    mystops.Collections.routes.fetch();
     this.listenTo(mystops.Collections.routes, 'add', this.showRoute);
     this.listenTo(mystops.Collections.directions, 'sync', this.showDirections);
     this.listenTo(mystops.Collections.stops, 'sync', this.showStops);
+    this.listenTo(mystops.Collections.savedStops, 'all', this.showAllSavedStops);
+    mystops.Collections.routes.fetch();
+    mystops.Collections.savedStops.fetch();
   },
 
   showAllRoutes: function() {
@@ -68,6 +70,16 @@ mystops.Views.SelectView = Backbone.View.extend({
         stopName: selectedStop.text()
     });
     mystops.Collections.savedStops.create(newSavedStop);
+  },
+
+  showAllSavedStops: function() {
+    $("#saved_stops").html('');
+    mystops.Collections.savedStops.each(this.showSavedStop, this);
+  },
+
+  showSavedStop: function(savedStop) {
+    var view = new mystops.Views.SavedStopView({ model: savedStop });
+    $("#saved_stops").append( view.render().el );
   }
 
 });
