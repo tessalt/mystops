@@ -2,7 +2,7 @@
 
 mystops.Views.RouteView = Backbone.View.extend({
 
-  template: JST['app/scripts/templates/route.ejs'],
+  template: JST['app/scripts/templates/option.ejs'],
 
   tagName: 'option',
 

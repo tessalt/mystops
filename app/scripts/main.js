@@ -8,6 +8,7 @@ window.mystops = {
   init: function () {
     this.Collections.routes = new this.Collections.RouteCollection();
     this.Collections.directions = new this.Collections.DirectionCollection();
+    this.Collections.stops = new this.Collections.StopCollection();
     new mystops.Views.SelectView();
   }
 };

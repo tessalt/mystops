@@ -1,6 +1,6 @@
 /*global mystops, Backbone, JST*/
 
-mystops.Views.DirectionView = Backbone.View.extend({
+mystops.Views.StopView = Backbone.View.extend({
 
   template: JST['app/scripts/templates/option.ejs'],
 
