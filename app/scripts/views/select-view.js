@@ -71,7 +71,6 @@ mystops.Views.SelectView = Backbone.View.extend({
     });
     var validModel = this.validate(newSavedStop);
     if (validModel) {
-      console.log(validModel);
       mystops.Collections.savedStops.create(newSavedStop);
     }
   },
@@ -98,6 +97,10 @@ mystops.Views.SelectView = Backbone.View.extend({
       return false;
     } else if (currentStops.length > 5) {
       validationEl.append("<li>Maximum of 5 stops my be selected</li>");
+      return false;
+    } else if (currentStops.indexOf(model.get('stopTag')) > -1) {
+      validationEl.append("<li>You've already added that stop!</li>");
+      return false;
     } else {
       return true;
     }
