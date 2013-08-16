@@ -15,6 +15,7 @@ mystops.Views.SelectView = Backbone.View.extend({
     this.listenTo(mystops.Collections.directions, 'sync', this.showDirections);
     this.listenTo(mystops.Collections.stops, 'sync', this.showStops);
     this.listenTo(mystops.Collections.savedStops, 'all', this.showAllSavedStops);
+    this.listenTo(mystops.Collections.savedStops, 'add', this.resetForm);
     mystops.Collections.routes.fetch();
     mystops.Collections.savedStops.fetch();
   },
@@ -87,23 +88,34 @@ mystops.Views.SelectView = Backbone.View.extend({
 
   validate: function(model) {
     var validationEl = $("#validation");
-    validationEl.html('');
-    var currentStops = [];
-    mystops.Collections.savedStops.each(function(savedStop){
-      currentStops.push(savedStop.get('stopTag'));
-    });
-    if (!model.get('stopTag')) {
+    if (model.get('stopTag') === "") {
       validationEl.append("<li>Please select a stop</li>");
       return false;
-    } else if (currentStops.length > 5) {
+    } else if (mystops.Collections.savedStops.length >= 5) {
       validationEl.append("<li>Maximum of 5 stops my be selected</li>");
       return false;
-    } else if (currentStops.indexOf(model.get('stopTag')) > -1) {
+    } else if (this.isDuplicate(model)) {
       validationEl.append("<li>You've already added that stop!</li>");
       return false;
     } else {
       return true;
     }
+  },
+
+  isDuplicate: function(model) {
+    var match = false;
+    mystops.Collections.savedStops.each(function(savedStop){
+      if (model.get('stopTag') === savedStop.get('stopTag')) {
+        match = true;
+      }
+    });
+    return match;
+  },
+
+  resetForm: function() {
+    $("#routes option:first-child").prop('selected', true);
+    $("#directions option:first-child").prop('selected', true);
+    $("#stops option:first-child").prop('selected', true);
   }
 
 });
