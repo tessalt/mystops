@@ -6,9 +6,16 @@ mystops.Views.SavedStopView = Backbone.View.extend({
 
   tagName: 'li',
 
+  events: {
+    'click .delete' : 'clear'
+  },
+
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     return this;
+  },
+  clear: function() {
+    this.model.destroy();
   }
 
 });
