@@ -6,6 +6,10 @@ mystops.Collections.PredictionCollection = Backbone.Collection.extend({
 
   url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=ttc',
 
+  comparator: function (model) {
+    return +model.get('minutes');
+  },
+
   parse: function (data) {
     var parsed = [];
     $(data).find('direction').each(function (index) {
