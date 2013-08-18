@@ -14,11 +14,33 @@
   <script src="scripts/vendor/f7f27360.modernizr.js"></script>
 </head>
 <body>
-  <div class="container" id="mystops">
+  <div class="container" id="select">
 
+    <form id="select_stops" action="">
+
+      <select class="form-control" name="routes" id="routes">
+        <option value="">Select a Route</option>
+      </select>
+
+      <select name="directions" id="directions">
+        <option value="">Select a Direction</option>
+      </select>
+
+      <select name="stops" id="stops">
+        <option value="">Select a Stop</option>
+      </select>
+
+      <a id="add_stop">Add Stop</a>
+
+    </form>
+
+    <ul id="validation"></ul>
+
+    <ul id="saved_stops"></ul>
+
+    <a href="index.html">View predictions</a>
 
   </div>
-    <a href="select.html">Select stops</a>
 
 <!--[if lt IE 7]>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
