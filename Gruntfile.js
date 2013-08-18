@@ -47,7 +47,6 @@ module.exports = function (grunt) {
       },
       files: [
         '.tmp/{,*/}*.html',
-        '<%= yeoman.app %>/*.html',
         '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
         '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
         '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
@@ -169,7 +168,7 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '.tmp/index.html',
+      html: '.tmp/{,*/}*.html',
       options: {
         dest: '<%= yeoman.dist %>'
       }
@@ -203,17 +202,6 @@ module.exports = function (grunt) {
     },
     htmlmin: {
       dist: {
-        options: {
-          /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true*/
-        },
         files: [{
           expand: true,
           cwd: '.tmp',
@@ -278,7 +266,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>',
           dest: '.tmp',
-          src: '*.jade',
+          src: '{,*/}*.jade',
           ext: '.html'
         }]
       }
@@ -323,8 +311,8 @@ module.exports = function (grunt) {
     'coffee',
     'createDefaultTemplate',
     'jst',
-    'jade',
     'compass:dist',
+    'jade',
     'useminPrepare',
     'neuter:app',
     'imagemin',
