@@ -30,7 +30,7 @@ mystops.Views.SelectView = Backbone.View.extend({
   },
 
   selectDirection: function() {
-    var chosenRoute = $("#routes option:selected").val();
+    var chosenRoute = $("#routes option").not(function() { return !this.selected }).val();
     mystops.Collections.directions.fetch({ data: { r: chosenRoute } });
   },
 
@@ -43,12 +43,12 @@ mystops.Views.SelectView = Backbone.View.extend({
   },
 
   selectStop: function() {
-    var chosenRoute = $("#routes option:selected").val();
+    var chosenRoute = $("#routes option").not(function() { return !this.selected }).val();
     mystops.Collections.stops.fetch( { data: { r: chosenRoute } });
   },
 
   showStops: function() {
-    var chosenDir = $("#directions option:selected").val();
+    var chosenDir = $("#directions option").not(function() { return !this.selected }).val();
     $("#stops").html("<option>Select a Stop</option>");
     mystops.Collections.stops.each(function(stop){
       if (chosenDir === stop.get('direction')) {
@@ -59,9 +59,9 @@ mystops.Views.SelectView = Backbone.View.extend({
   },
 
   addSavedStop: function() {
-    var selectedRoute = $("#routes option:selected"),
-        selectedDirection = $("#directions option:selected"),
-        selectedStop = $("#stops option:selected");
+    var selectedRoute = $("#routes option").not(function() { return !this.selected }),
+        selectedDirection = $("#directions option").not(function() { return !this.selected }),
+        selectedStop = $("#stops option").not(function() { return !this.selected });
     var newSavedStop = new mystops.Models.SavedStopModel({
         routeTag: selectedRoute.val(),
         directionTag: selectedDirection.val(),

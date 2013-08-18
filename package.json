@@ -1,8 +1,7 @@
 {
   "name": "mystops",
   "version": "0.0.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.0",
@@ -25,7 +24,8 @@
     "grunt-rev": "~0.1.0",
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.2",
-    "connect-livereload": "~0.2.0"
+    "connect-livereload": "~0.2.0",
+    "grunt-contrib-jade": "~0.8.0"
   },
   "engines": {
     "node": ">=0.8.0",

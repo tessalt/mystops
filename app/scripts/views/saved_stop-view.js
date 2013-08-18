@@ -4,7 +4,7 @@ mystops.Views.SavedStopView = Backbone.View.extend({
 
   template: JST['app/scripts/templates/saved_stop.ejs'],
 
-  tagName: 'li',
+  className: 'panel',
 
   events: {
     'click .delete' : 'clear'
