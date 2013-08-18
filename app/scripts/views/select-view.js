@@ -2,7 +2,7 @@
 
 mystops.Views.SelectView = Backbone.View.extend({
 
-  el: "body",
+  el: "#select",
 
   events: {
     'change #routes' : 'selectDirection',
