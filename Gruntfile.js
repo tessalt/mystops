@@ -46,6 +46,7 @@ module.exports = function (grunt) {
         livereload: LIVERELOAD_PORT
       },
       files: [
+        '.tmp/{,*/}*.html',
         '<%= yeoman.app %>/*.html',
         '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
         '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
@@ -168,7 +169,7 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '.tmp/index.html',
       options: {
         dest: '<%= yeoman.dist %>'
       }
@@ -215,7 +216,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
+          cwd: '.tmp',
           src: '*.html',
           dest: '<%= yeoman.dist %>'
         }]
@@ -322,8 +323,8 @@ module.exports = function (grunt) {
     'coffee',
     'createDefaultTemplate',
     'jst',
-    'compass:dist',
     'jade',
+    'compass:dist',
     'useminPrepare',
     'neuter:app',
     'imagemin',
