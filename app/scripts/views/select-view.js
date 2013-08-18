@@ -88,6 +88,7 @@ mystops.Views.SelectView = Backbone.View.extend({
 
   validate: function(model) {
     var validationEl = $("#validation");
+    validationEl.html("");
     if (model.get('stopTag') === "") {
       validationEl.append("<li>Please select a stop</li>");
       return false;

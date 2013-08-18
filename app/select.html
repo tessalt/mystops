@@ -18,7 +18,29 @@
 <body>
   <div class="container ">
 
-    <a href="select.html">Select stops</a>
+    <form id="select_stops" action="">
+
+      <select class="form-control" name="routes" id="routes">
+        <option value="">Select a Route</option>
+      </select>
+
+      <select name="directions" id="directions">
+        <option value="">Select a Direction</option>
+      </select>
+
+      <select name="stops" id="stops">
+        <option value="">Select a Stop</option>
+      </select>
+
+      <a id="add_stop">Add Stop</a>
+
+    </form>
+
+    <ul id="validation"></ul>
+
+    <ul id="saved_stops"></ul>
+
+    <a href="index.html">View predictions</a>
 
   </div>
 
