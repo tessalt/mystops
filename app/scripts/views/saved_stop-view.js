@@ -9,8 +9,7 @@ mystops.Views.SavedStopView = Backbone.View.extend({
   events: {
     'click .delete' : 'clear',
     'click .edit-tag' : 'toggleEdit',
-    'click .save-tag' : 'saveTag',
-    'click .edit-tag-input' : 'toggleEdit'
+    'click .save-tag' : 'saveTag'
   },
 
   render: function() {
@@ -23,14 +22,14 @@ mystops.Views.SavedStopView = Backbone.View.extend({
   },
 
   toggleEdit: function() {
-    $('.edit-tag-input').toggle();
-    $('.tag').toggle();
-    $('.save-tag').toggle();
-    $('.edit-tag').toggle();
+    this.$el.find('.edit-tag-input').toggle();
+    this.$el.find('.tag').toggle();
+    this.$el.find('.save-tag').toggle();
+    this.$el.find('.edit-tag').toggle();
   },
 
   saveTag: function() {
-    var input = $('.edit-tag-input').val().trim();
+    var input = this.$el.find('.edit-tag-input').val().trim();
     this.model.save({tag: input});
   }
 

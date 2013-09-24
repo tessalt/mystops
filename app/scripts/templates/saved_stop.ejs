@@ -1,12 +1,20 @@
 <div class="stop-heading">
   <div class="header-content">
     <h2 class="stop-title pull-left"><%= routeName %></h2>
-    <span class="tag"><%= tag %></span>
+    <% if (tag.length > 0) { %>
+      <span class="tag"><%= tag %></span>
+    <% } %>
     <input type="text" class="edit-tag-input" value="<%= tag %>">
     <p><%= stopName %></p>
   </div>
   <div class="header-actions">
-    <a class="edit-tag">Edit</a>
+    <a class="edit-tag">
+      <% if (tag.length > 0) { %>
+        Edit Tag
+      <% } else { %>
+        Add Tag
+      <% } %>
+    </a>
     <a class="save-tag">Save</a>
     <a class="delete">Delete</a>
   </div>
