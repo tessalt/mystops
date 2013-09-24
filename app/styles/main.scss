@@ -24,3 +24,17 @@
     border-bottom-width: 0;
   }
 }
+
+.edit-tag-input {
+  border-width: 0;
+  background: transparent;
+  margin-left: 20px;
+  &.edit {
+    border-width: 1px;
+    background: white;
+  }
+}
+
+.save-tag {
+  display: none;
+}

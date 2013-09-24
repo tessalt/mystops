@@ -16,6 +16,7 @@ mystops.Models.SavedStopModel = Backbone.Model.extend({
     stopTag: "",
     routeName: "",
     directionName: "",
-    stopName: ""
+    stopName: "",
+    tag: ""
   }
 */

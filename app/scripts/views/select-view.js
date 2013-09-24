@@ -68,7 +68,8 @@ mystops.Views.SelectView = Backbone.View.extend({
         stopTag: selectedStop.val(),
         routeName: selectedRoute.text(),
         directionName: selectedDirection.text(),
-        stopName: selectedStop.text()
+        stopName: selectedStop.text(),
+        tag: ""
     });
     var validModel = this.validate(newSavedStop);
     if (validModel) {
