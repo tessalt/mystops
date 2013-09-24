@@ -12,6 +12,7 @@ window.mystops = {
     this.Collections.savedStops = new mystops.Collections.SavedStopCollection();
     new mystops.Views.SelectView();
     new mystops.Views.IndexView();
+    new mystops.Views.UIView();
   }
 };
 

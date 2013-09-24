@@ -1,13 +1,15 @@
-<div class="panel-heading clearfix">
-  <h2 class="panel-title pull-left"><%= routeName %></h2>
-  <input type="text" class="edit-tag-input" value="<%= tag %>">
-  <a class="btn btn-info edit-tag pull-right btn-small">Edit</a>
-  <a class="btn btn-default save-tag pull-right btn-small">Save</a>
-  <a class="btn btn-danger delete pull-right btn-small">Delete</a>
+<div class="stop-heading">
+  <div class="header-content">
+    <h2 class="stop-title pull-left"><%= routeName %></h2>
+    <span class="tag"><%= tag %></span>
+    <input type="text" class="edit-tag-input" value="<%= tag %>">
+    <p><%= stopName %></p>
+  </div>
+  <div class="header-actions">
+    <a class="edit-tag">Edit</a>
+    <a class="save-tag">Save</a>
+    <a class="delete">Delete</a>
+  </div>
 </div>
 
-<div class="panel-body">
-  <p><%= stopName %></p>
-</div>
-
-<ul class="list-group"></ul>
+<ul class="stop-body"></ul>

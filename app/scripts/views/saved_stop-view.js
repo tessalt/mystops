@@ -23,7 +23,8 @@ mystops.Views.SavedStopView = Backbone.View.extend({
   },
 
   toggleEdit: function() {
-    $('.edit-tag-input').toggleClass('edit');
+    $('.edit-tag-input').toggle();
+    $('.tag').toggle();
     $('.save-tag').toggle();
     $('.edit-tag').toggle();
   },
