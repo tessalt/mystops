@@ -5,10 +5,10 @@
 
 .app-header
   @extend .cf
-  background: #CD0000
+  background: $main
   h1
     float: left
-    padding: 17px 15px
+    padding: 17px $spacing
     font-size: 20px
 
 .app-nav
@@ -25,7 +25,7 @@
   a
     display: block
     text-align: center
-    padding: 15px 0
+    padding: $spacing 0
     border-top: 1px solid rgba(0,0,0,0.2)
     background: rgba(0,0,0,0.1)
 
@@ -38,17 +38,17 @@
     a
       background: none
       border-width: 0
-      padding: 17px 15px
+      padding: 17px $spacing
 
 .nav-toggle
   display: block
   float: right
-  margin-right: 15px
+  margin-right: $spacing
   text-indent: -9999px
-  height: 15px
+  height: $spacing
   border-bottom: 5px solid #fff
   width: 40px
-  margin: 15px
+  margin: $spacing
   position: relative
   &:before, &:after
     content: ""
@@ -60,7 +60,7 @@
     top: 0
     border-top: 5px solid #fff
   &:after
-    bottom: -15px
+    bottom: -$spacing
     border-bottom: 5px solid #fff
 
   @media screen and (min-width: 720px)
@@ -69,13 +69,13 @@
 /*-- @component SAVED STOP -- */
 
 .saved-stop
-  margin-bottom: 15px
+  margin-bottom: $spacing
   color: #fff
 
 #mystops
   @media screen and (min-width: 720px)
     &.container
-      margin: 15px 7.5px
+      margin: $spacing 7.5px
     @include cf
     .saved-stop
       width: 33.3333333%
@@ -83,16 +83,18 @@
       padding: 0 7.5px
 
 .saved-stop-header
-  padding: 15px
+  padding: $spacing
   background: rgba(0,0,0,0.8)
   position: relative
+  border: 1px solid rgba(255,255,255,0.2)
+  border-bottom: 2px solid rgba(255,255,255,0.5)
   h2
     float: left
   p
     clear: both
     font-size: 14px
   .tag, .save-tag
-    margin-left: 15px
+    margin-left: $spacing
     padding: 5px
     font-size: 12px
     font-weight: bold
@@ -103,7 +105,7 @@
   .tag
     display: inline-block
   .edit-tag-input
-    margin-left: 15px
+    margin-left: $spacing
   .delete
     position: absolute
     right: 0
@@ -116,10 +118,11 @@
 
 .saved-stop-body
   list-style: none
-  background: rgba(0,0,0,0.6)
+  background: rgba(0,0,0,0.5)
+  border: 1px solid rgba(255,255,255,0.1)
   li
     @extend .cf
-    padding: 15px
+    padding: $spacing
     &:first-child
       h3
         font-size: 24px
@@ -143,11 +146,11 @@
 /*-- @component SELECT STOPS FORM -- */
 
 .select-stop-form
-  margin-bottom: 15px
+  margin-bottom: $spacing
   select
     display: block
     width: 100%
-    margin-bottom: 15px
+    margin-bottom: $spacing
     font-size: inherit
     font-family: inherit
 
@@ -157,18 +160,37 @@
     width: 50%
     float: left
   .select-stop-form
-    padding-right: 15px
+    padding-right: $spacing
   .select-stop-saved
-    padding-left: 15px
+    padding-left: $spacing
 
 /*-- @components NO STOPS ALERT -- */
 
 .no-stops
   margin: 0 7.5px
-  padding: 15px
+  padding: $spacing
   text-align: center
   background: rgba(0,0,0,0.3)
   h1
     color: #fff
     font-weight: normal
-    margin-bottom: 15px
+    margin-bottom: $spacing
+
+.copyright
+  position: absolute
+  bottom: $spacing
+  left: $spacing
+  color: #fff
+  font-size: 12px
+  a
+    text-decoration: underline
+
+/*-- @components VALIDATION -- */
+
+.validation
+  margin-top: $spacing
+  background: rgba(255,255,255,0.6)
+  list-style: none
+  li
+    padding: $spacing
+    color: darken($main, 10%)
