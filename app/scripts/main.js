@@ -18,8 +18,9 @@ window.mystops = {
 
 mystops.Routers.AppRouter = Backbone.Router.extend({
   routes: {
-    "" : "index",
-    "select" : "select"
+    '' : 'index',
+    'index' : 'index',
+    'select' : 'select'
   },
   index: function() {
     new mystops.Views.IndexView();
