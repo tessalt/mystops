@@ -10,13 +10,34 @@
       <h1><a href="index.html">MyStops</a></h1>
       <nav class="app-nav"><a class="nav-toggle">Menu</a>
         <ul class="nav-menu">
-          <li><a href="index.html">Predictions</a></li>
-          <li><a href="select.html">Select Stops</a></li>
+          <li><a href="/">Predictions</a></li>
+          <li><a href="#select">Select Stops</a></li>
         </ul>
       </nav>
     </header>
   </body>
 </html>
 <div id="mystops" class="container"></div>
+<div id="select" class="container">
+  <form id="select_stops">
+    <div class="form-group">
+      <select id="routes" name="routes" class="form-control">
+        <option value="">Select a Route</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select id="directions" name="directions" class="form-control">
+        <option value="">Select a direction</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select id="stops" name="stops" class="form-control">
+        <option value="">Select a Stop</option>
+      </select>
+    </div><a id="add_stop" class="btn btn-primary">Add Stop</a>
+  </form>
+  <ul id="validation"></ul>
+  <div id="saved_stops"></div><a href="index.html" class="btn btn-default">View Predictions</a>
+</div>
 <script src="scripts/855eef2a.vendor.js"></script>
-<script src="scripts/3633127b.main.js"></script>
+<script src="scripts/3e41eda4.main.js"></script>

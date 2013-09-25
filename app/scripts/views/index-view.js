@@ -5,6 +5,8 @@ mystops.Views.IndexView = Backbone.View.extend({
   el: "#mystops",
 
   initialize: function() {
+    $("#select").hide();
+    this.$el.show();
     this.listenTo(mystops.Collections.savedStops, 'add', this.showSavedStop);
     this.listenTo(mystops.Collections.savedStops, 'all', this.showAllSavedStops);
     mystops.Collections.savedStops.fetch();

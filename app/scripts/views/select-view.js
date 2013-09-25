@@ -11,6 +11,8 @@ mystops.Views.SelectView = Backbone.View.extend({
   },
 
   initialize: function() {
+    $("#mystops").hide();
+    this.$el.show();
     this.listenTo(mystops.Collections.routes, 'add', this.showRoute);
     this.listenTo(mystops.Collections.directions, 'sync', this.showDirections);
     this.listenTo(mystops.Collections.stops, 'sync', this.showStops);

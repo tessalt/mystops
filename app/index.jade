@@ -2,4 +2,26 @@ include includes/header
 
 #mystops.container
 
+#select.container
+
+  form#select_stops
+
+    .form-group
+      select.form-control#routes(name="routes")
+        option(value="") Select a Route
+    .form-group
+      select.form-control#directions(name="directions")
+        option(value="") Select a direction
+    .form-group
+      select.form-control#stops(name="stops")
+        option(value="") Select a Stop
+
+    a#add_stop.btn.btn-primary Add Stop
+
+  ul#validation
+
+  #saved_stops
+
+  a.btn.btn-default(href="index.html") View Predictions
+
 include includes/footer
