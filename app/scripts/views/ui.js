@@ -11,7 +11,7 @@ mystops.Views.UIView = Backbone.View.extend ({
   },
 
   toggleNav: function(e) {
-    this.$el.find(".nav-menu").slideToggle();
+    this.$el.find(".app-nav-menu").slideToggle();
   }
 
 });

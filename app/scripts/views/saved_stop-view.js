@@ -4,11 +4,11 @@ mystops.Views.SavedStopView = Backbone.View.extend({
 
   template: _.template($("#saved-stop-template").html()),
 
-  className: 'panel',
+  className: 'saved-stop',
 
   events: {
     'click .delete' : 'clear',
-    'click .edit-tag' : 'toggleEdit',
+    'click .tag' : 'toggleEdit',
     'click .save-tag' : 'saveTag'
   },
 

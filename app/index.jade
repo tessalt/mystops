@@ -2,52 +2,47 @@ include includes/header
 
 #mystops.container
 
+  .no-stops
+    h1 No stops selected!
+    a.btn(href="#select") Select Stops
+
 #select.container
 
-  form#select_stops
+  form#select_stops.select-stop-form
 
-    .form-group
-      select.form-control#routes(name="routes")
-        option(value="") Select a Route
-    .form-group
-      select.form-control#directions(name="directions")
-        option(value="") Select a direction
-    .form-group
-      select.form-control#stops(name="stops")
-        option(value="") Select a Stop
+    select#routes(name="routes")
+      option(value="") Select a Route
 
-    a#add_stop.btn.btn-primary Add Stop
+    select#directions(name="directions")
+      option(value="") Select a direction
 
-  ul#validation
+    select#stops(name="stops")
+      option(value="") Select a Stop
 
-  #saved_stops
+    a.btn#add_stop Add Stop
 
-  a.btn.btn-default   (href="index.html") View Predictions
+    ul#validation
+
+  .select-stop-saved
+    #saved_stops
+
+    a.btn(href="/#index") View Predictions
 
 script(type="text/template", id="saved-stop-template").
-  <div class="stop-heading">
-    <div class="header-content">
-      <h2 class="stop-title pull-left"><%= routeName %></h2>
-      <% if (tag.length > 0) { %>
-        <span class="tag"><%= tag %></span>
-      <% } %>
-      <input type="text" class="edit-tag-input" value="<%= tag %>">
-      <p><%= stopName %></p>
-    </div>
-    <div class="header-actions">
-      <a class="edit-tag">
-        <% if (tag.length > 0) { %>
-          Edit Tag
-        <% } else { %>
-          Add Tag
-        <% } %>
-      </a>
-      <a class="save-tag">Save</a>
-      <a class="delete">Delete</a>
-    </div>
-  </div>
+  <header class="saved-stop-header">
+    <h2><%= routeName %></h2>
+    <% if (tag.length > 0) { %>
+      <span class="tag"><%= tag %></span>
+    <% } else { %>
+      <span class="tag"><a class="add-tag">Add Tag</a></span>
+    <% } %>
+    <input type="text" class="edit-tag-input" value="<%= tag %>">
+    <a class="save-tag">Save</a>
+    <p><%= stopName %></p>
+    <a class="delete">Delete</a>
+  </header>
 
-  <ul class="stop-body"></ul>
+  <ul class="saved-stop-body"></ul>
 
 script(type="text/template", id="prediction-template").
   <h3><span class="minutes"><%= minutes %></span> Minutes</h3>

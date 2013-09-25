@@ -19,7 +19,9 @@ mystops.Views.IndexView = Backbone.View.extend({
   },
 
   showAllSavedStops: function () {
-    this.$el.html('');
+    if (mystops.Collections.savedStops.length) {
+      this.$el.html('');
+    }
     var self = this;
     mystops.Collections.savedStops.each(function (stop) {
       self.showSavedStop(stop);
