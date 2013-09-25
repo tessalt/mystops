@@ -2,7 +2,7 @@
 
 mystops.Views.PredictionView = Backbone.View.extend({
 
-  template: JST['app/scripts/templates/prediction.ejs'],
+  template: _.template($("#prediction-template").html()),
 
   tagName: 'li',
 

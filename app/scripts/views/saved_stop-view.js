@@ -2,7 +2,7 @@
 
 mystops.Views.SavedStopView = Backbone.View.extend({
 
-  template: JST['app/scripts/templates/saved_stop.ejs'],
+  template: _.template($("#saved-stop-template").html()),
 
   className: 'panel',
 

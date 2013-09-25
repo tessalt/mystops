@@ -2,7 +2,7 @@
 
 mystops.Views.StopView = Backbone.View.extend({
 
-  template: JST['app/scripts/templates/option.ejs'],
+  template: _.template($("#prediction-template").html()),
 
   tagName: 'option',
 

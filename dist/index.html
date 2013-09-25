@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>MyStops</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/9c8f5e40.main.css">
   </head>
@@ -37,7 +37,42 @@
     </div><a id="add_stop" class="btn btn-primary">Add Stop</a>
   </form>
   <ul id="validation"></ul>
-  <div id="saved_stops"></div><a href="index.html" class="btn btn-default">View Predictions</a>
+  <div id="saved_stops"></div><a class="btn btn-default">  (href="index.html") View Predictions</a>
 </div>
+<script type="text/template" id="saved-stop-template">
+  <div class="stop-heading">
+    <div class="header-content">
+      <h2 class="stop-title pull-left"><%= routeName %></h2>
+      <% if (tag.length > 0) { %>
+        <span class="tag"><%= tag %></span>
+      <% } %>
+      <input type="text" class="edit-tag-input" value="<%= tag %>">
+      <p><%= stopName %></p>
+    </div>
+    <div class="header-actions">
+      <a class="edit-tag">
+        <% if (tag.length > 0) { %>
+          Edit Tag
+        <% } else { %>
+          Add Tag
+        <% } %>
+      </a>
+      <a class="save-tag">Save</a>
+      <a class="delete">Delete</a>
+    </div>
+  </div>
+  
+  <ul class="stop-body"></ul>
+  
+</script>
+<script type="text/template" id="prediction-template">
+  <h3><span class="minutes"><%= minutes %></span> Minutes</h3>
+  <p class="prediction-title"><%= direction %></p>
+  
+</script>
+<script type="text/template" id="option-template">
+  <%= title %>
+  
+</script>
 <script src="scripts/855eef2a.vendor.js"></script>
-<script src="scripts/646251fd.main.js"></script>
+<script src="scripts/228293ad.main.js"></script>

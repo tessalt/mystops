@@ -22,6 +22,38 @@ include includes/header
 
   #saved_stops
 
-  a.btn.btn-default(href="index.html") View Predictions
+  a.btn.btn-default   (href="index.html") View Predictions
+
+script(type="text/template", id="saved-stop-template").
+  <div class="stop-heading">
+    <div class="header-content">
+      <h2 class="stop-title pull-left"><%= routeName %></h2>
+      <% if (tag.length > 0) { %>
+        <span class="tag"><%= tag %></span>
+      <% } %>
+      <input type="text" class="edit-tag-input" value="<%= tag %>">
+      <p><%= stopName %></p>
+    </div>
+    <div class="header-actions">
+      <a class="edit-tag">
+        <% if (tag.length > 0) { %>
+          Edit Tag
+        <% } else { %>
+          Add Tag
+        <% } %>
+      </a>
+      <a class="save-tag">Save</a>
+      <a class="delete">Delete</a>
+    </div>
+  </div>
+
+  <ul class="stop-body"></ul>
+
+script(type="text/template", id="prediction-template").
+  <h3><span class="minutes"><%= minutes %></span> Minutes</h3>
+  <p class="prediction-title"><%= direction %></p>
+
+script(type="text/template", id="option-template").
+  <%= title %>
 
 include includes/footer

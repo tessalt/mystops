@@ -49,15 +49,8 @@ module.exports = function (grunt) {
         '.tmp/{,*/}*.html',
         '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
         '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-        '{.tmp,<%= yeoman.app %>}/scripts/templates/*.ejs',
         '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
         ]
-      },
-      jst: {
-        files: [
-        '<%= yeoman.app %>/scripts/templates/*.ejs'
-          ],
-        tasks: ['jst']
       },
       neuter: {
         files: ['{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.{js,coffee}'],
@@ -287,7 +280,6 @@ module.exports = function (grunt) {
       'clean:server',
       'coffee:dist',
       'createDefaultTemplate',
-      'jst',
       'neuter:app',
       'compass:server',
       'jade',
@@ -300,7 +292,6 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee',
     'createDefaultTemplate',
-    'jst',
     'neuter:app',
     'compass',
     'connect:test',
@@ -311,7 +302,6 @@ module.exports = function (grunt) {
     'clean:dist',
     'coffee',
     'createDefaultTemplate',
-    'jst',
     'compass:dist',
     'jade',
     'useminPrepare',
