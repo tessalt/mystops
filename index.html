@@ -3,13 +3,13 @@
   <head>
     <title>MyStops</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/9c8f5e40.main.css">
+    <link rel="stylesheet" href="styles/01fb593f.main.css">
   </head>
   <body>
     <header class="app-header">
       <h1><a href="index.html">MyStops</a></h1>
       <nav class="app-nav"><a class="nav-toggle">Menu</a>
-        <ul class="nav-menu">
+        <ul class="app-nav-menu">
           <li><a href="#index">Predictions</a></li>
           <li><a href="#select">Select Stops</a></li>
         </ul>
@@ -17,52 +17,43 @@
     </header>
   </body>
 </html>
-<div id="mystops" class="container"></div>
+<div id="mystops" class="container">
+  <div class="no-stops">
+    <h1>No stops selected!</h1><a href="#select" class="btn">Select Stops</a>
+  </div>
+</div>
 <div id="select" class="container">
-  <form id="select_stops">
-    <div class="form-group">
-      <select id="routes" name="routes" class="form-control">
-        <option value="">Select a Route</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <select id="directions" name="directions" class="form-control">
-        <option value="">Select a direction</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <select id="stops" name="stops" class="form-control">
-        <option value="">Select a Stop</option>
-      </select>
-    </div><a id="add_stop" class="btn btn-primary">Add Stop</a>
+  <form id="select_stops" class="select-stop-form">
+    <select id="routes" name="routes">
+      <option value="">Select a Route</option>
+    </select>
+    <select id="directions" name="directions">
+      <option value="">Select a direction</option>
+    </select>
+    <select id="stops" name="stops">
+      <option value="">Select a Stop</option>
+    </select><a id="add_stop" class="btn">Add Stop</a>
+    <ul id="validation"></ul>
   </form>
-  <ul id="validation"></ul>
-  <div id="saved_stops"></div><a class="btn btn-default">  (href="index.html") View Predictions</a>
+  <div class="select-stop-saved">
+    <div id="saved_stops"></div><a href="/#index" class="btn">View Predictions</a>
+  </div>
 </div>
 <script type="text/template" id="saved-stop-template">
-  <div class="stop-heading">
-    <div class="header-content">
-      <h2 class="stop-title pull-left"><%= routeName %></h2>
-      <% if (tag.length > 0) { %>
-        <span class="tag"><%= tag %></span>
-      <% } %>
-      <input type="text" class="edit-tag-input" value="<%= tag %>">
-      <p><%= stopName %></p>
-    </div>
-    <div class="header-actions">
-      <a class="edit-tag">
-        <% if (tag.length > 0) { %>
-          Edit Tag
-        <% } else { %>
-          Add Tag
-        <% } %>
-      </a>
-      <a class="save-tag">Save</a>
-      <a class="delete">Delete</a>
-    </div>
-  </div>
+  <header class="saved-stop-header">
+    <h2><%= routeName %></h2>
+    <% if (tag.length > 0) { %>
+      <span class="tag"><%= tag %></span>
+    <% } else { %>
+      <span class="tag"><a class="add-tag">Add Tag</a></span>
+    <% } %>
+    <input type="text" class="edit-tag-input" value="<%= tag %>">
+    <a class="save-tag">Save</a>
+    <p><%= stopName %></p>
+    <a class="delete">Delete</a>
+  </header>
   
-  <ul class="stop-body"></ul>
+  <ul class="saved-stop-body"></ul>
   
 </script>
 <script type="text/template" id="prediction-template">
@@ -75,4 +66,4 @@
   
 </script>
 <script src="scripts/855eef2a.vendor.js"></script>
-<script src="scripts/228293ad.main.js"></script>
+<script src="scripts/339e3c82.main.js"></script>
